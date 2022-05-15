@@ -51,7 +51,7 @@ Shader "ViveSR/Camera Depth Occlusion"
 				fInput vOut;			
 
 				vOut.pos = UnityObjectToClipPos(vIn.pos);				
-				//vOut.uvCoord = vIn.uvCoord; //
+				//vOut.uvCoord = vIn.uvCoord;
 				vOut.uvCoord.x = vIn.uvCoord.x;
 				vOut.uvCoord.y = 1 - vIn.uvCoord.y;
 
@@ -60,7 +60,7 @@ Shader "ViveSR/Camera Depth Occlusion"
 			
 			fOutput frag (fInput fIn)
 			{
-				fOutput fOut;
+				fOutput fOut;				
 				float viewD = tex2D(_MainTex, fIn.uvCoord).r * 0.01;		// cm to m
 				float outAlpha = 1.0f;
 
