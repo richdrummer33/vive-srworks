@@ -13840,9 +13840,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114832923058636880, guid: 2b918cf92fa6ad648a852a0da59a1d41,
         type: 3}
+      propertyPath: useColorNotDepth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114832923058636880, guid: 2b918cf92fa6ad648a852a0da59a1d41,
+        type: 3}
+      propertyPath: DepthMaterials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114832923058636880, guid: 2b918cf92fa6ad648a852a0da59a1d41,
+        type: 3}
       propertyPath: DepthMaterials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: bdb71fcc10f02b342a5dda9bbe1caa2c, type: 2}
+    - target: {fileID: 114832923058636880, guid: 2b918cf92fa6ad648a852a0da59a1d41,
+        type: 3}
+      propertyPath: DepthMaterials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 331c278bed601ac4bab504874bbb8df5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b918cf92fa6ad648a852a0da59a1d41, type: 3}
 --- !u!1 &386026913

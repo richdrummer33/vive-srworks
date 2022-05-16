@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.vivesrworks.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "E:\\Unity\\GitHub\\Vive SRWorks\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "E:\\Unity\\GitHub\\vive-srworks\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "Vive SRWorks [Testing]"

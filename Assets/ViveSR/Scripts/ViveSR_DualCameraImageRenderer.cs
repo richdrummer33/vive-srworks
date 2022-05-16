@@ -53,6 +53,7 @@ namespace Vive.Plugin.SR
             get { return _OcclusionFarDistance; }
             set { if (value != _OcclusionFarDistance) SetDepthOcclusionFarDistance(value); }
         }
+        [SerializeField] bool useColorNotDepth = false;
         private static bool _UpdateDistortedMaterial = false;
         private static bool _UpdateUndistortedMaterial = false;
         private static bool _UpdateDepthMaterial = false;
@@ -315,13 +316,29 @@ namespace Vive.Plugin.SR
                         DepthTimer.Add(current_depth_time_index - LastDepthTextureUpdateTime);
                         RealDepthFPS = 1000 / DepthTimer.AverageLeast(100);
                         int frame_index, time_index;
-                        Texture2D textureDepth;
-                        Matrix4x4 PoseDepth;
+                        Texture2D textureDepth, textureLeft, textureRight;
+                        Matrix4x4 PoseDepth, poseLeft, poseRight;
+
                         ViveSR_DualCameraImageCapture.GetDepthTexture(out textureDepth, out frame_index, out time_index, out PoseDepth);
-                        for (int i = 0; i < DepthMaterials.Count; i++)
+                       
+
+                        if (useColorNotDepth) // RB for chroma key
                         {
-                            if (DepthMaterials[i] != null) DepthMaterials[i].mainTexture = textureDepth;
+                            ViveSR_DualCameraImageCapture.GetUndistortedTexture(out textureLeft, out textureRight, out frame_index, out time_index, out poseLeft, out poseRight);
+
+                            if (DepthMaterials[0] != null) DepthMaterials[0].mainTexture = textureDepth;
+                            if (DepthMaterials[1] != null) DepthMaterials[1].mainTexture = textureLeft;
+                            //if (DepthMaterials[2] != null) DepthMaterials[2].mainTexture = textureRight;
                         }
+                        else
+                        {
+                            for (int i = 0; i < DepthMaterials.Count; i++)
+                            {
+                                if (DepthMaterials[i] != null) DepthMaterials[i].mainTexture = textureDepth;
+                            }
+                        }
+
+
                         LastDepthTextureUpdateTime = current_depth_time_index;
                     }
                 }
